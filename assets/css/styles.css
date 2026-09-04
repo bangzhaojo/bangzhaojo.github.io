@@ -147,12 +147,11 @@ a:hover {
 }
 
 .hero {
-  min-height: calc(100vh - 72px);
   display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(270px, 0.65fr);
+  grid-template-columns: minmax(0, 1fr) 220px;
   align-items: center;
-  gap: clamp(3rem, 8vw, 7rem);
-  padding-block: clamp(5rem, 10vw, 9rem);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  padding-block: clamp(4rem, 7vw, 6.5rem);
 }
 
 .eyebrow {
@@ -182,8 +181,9 @@ h2 {
 }
 
 h1 {
-  max-width: 860px;
-  font-size: clamp(3rem, 6.5vw, 6.1rem);
+  max-width: 680px;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.13;
 }
 
 h2 {
@@ -229,13 +229,16 @@ h2 {
 }
 
 .portrait-wrap {
+  width: 220px;
   margin: 0;
+  justify-self: end;
 }
 
 .portrait-frame {
   position: relative;
   overflow: hidden;
-  border-radius: 180px 180px 18px 18px;
+  aspect-ratio: 1;
+  border-radius: 50%;
   background: var(--paper-deep);
   box-shadow: var(--shadow);
 }
@@ -251,8 +254,9 @@ h2 {
 
 .portrait-frame img {
   width: 100%;
-  aspect-ratio: 2 / 3;
+  height: 100%;
   object-fit: cover;
+  object-position: 50% 22%;
 }
 
 .portrait-wrap figcaption {
@@ -278,6 +282,12 @@ h2 {
   grid-template-columns: 64px 1fr;
   gap: 1.25rem;
   margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.section-heading h2 {
+  max-width: 760px;
+  font-size: clamp(1.8rem, 3vw, 2.65rem);
+  line-height: 1.16;
 }
 
 .section-number {
@@ -335,37 +345,15 @@ h2 {
 
 .publication {
   display: grid;
-  grid-template-columns: 255px minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: 165px minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
   padding-block: 2.4rem;
   border-bottom: 1px solid var(--line);
 }
 
-.publication-image {
-  align-self: start;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  aspect-ratio: 16 / 10;
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 8px 25px rgba(40, 49, 45, 0.08);
-}
-
-.publication-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: transform 240ms ease;
-}
-
-.publication-image:hover img {
-  transform: scale(1.025);
-}
-
 .venue {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.6rem;
   margin: 0 0 0.65rem;
   color: var(--accent);
@@ -576,7 +564,8 @@ h2 {
   }
 
   .portrait-wrap {
-    width: min(320px, 75vw);
+    width: min(210px, 58vw);
+    justify-self: start;
   }
 
   .research-grid {
@@ -596,7 +585,7 @@ h2 {
   }
 
   .publication {
-    grid-template-columns: 190px minmax(0, 1fr);
+    grid-template-columns: 150px minmax(0, 1fr);
     gap: 1.5rem;
   }
 
@@ -626,11 +615,6 @@ h2 {
   .publication {
     grid-template-columns: 1fr;
   }
-
-  .publication-image {
-    width: min(100%, 360px);
-  }
-
   .news-list li {
     grid-template-columns: 1fr;
     gap: 0.35rem;
