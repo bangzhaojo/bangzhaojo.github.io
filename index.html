@@ -16,16 +16,10 @@
 
     <header class="site-header">
       <div class="shell nav-wrap">
-        <a class="wordmark" href="#top" aria-label="Bangzhao Shu, home">
+        <a class="wordmark" href="#top" aria-label="Bangzhao Shu, profile">
           <span class="wordmark-mark" aria-hidden="true">舒</span>
           <span>Bangzhao Shu</span>
         </a>
-        <nav class="nav-links" aria-label="Primary navigation">
-          <a href="#research">Research</a>
-          <a href="#publications">Publications</a>
-          <a href="#experience">Experience</a>
-          <a href="#news">News</a>
-        </nav>
         <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
           <span aria-hidden="true">◐</span>
         </button>
@@ -35,11 +29,11 @@
     <main id="main">
       <section class="hero shell" id="top">
         <div class="hero-copy">
-          <h1>Building language models that understand people—not just language.</h1>
+          <h1>Bangzhao Shu <span lang="zh-Hans">舒邦照</span></h1>
+          <p class="hero-role">Ph.D. Student in Computer Science · Northeastern University</p>
           <p class="hero-intro">
-            Hi! I am <strong>Bangzhao Shu (舒邦照)</strong>, a Ph.D. student in Computer Science at
-            <a href="https://www.khoury.northeastern.edu/">Northeastern University’s Khoury College of Computer Sciences</a>.
-            I am a member of the <a href="https://www.maielsherief.com/home-1">Computing for Social Good Lab</a>,
+            I am a Ph.D. student at <a href="https://www.khoury.northeastern.edu/">Northeastern University’s Khoury College of Computer Sciences</a>
+            and a member of the <a href="https://www.maielsherief.com/home-1">Computing for Social Good Lab</a>,
             advised by <a href="https://www.maielsherief.com/">Professor Mai ElSherief</a>.
           </p>
           <p class="hero-detail">
@@ -48,8 +42,8 @@
           </p>
           <div class="profile-links" aria-label="Profile links">
             <a href="mailto:shu.b@northeastern.edu"><span class="profile-icon" aria-hidden="true">@</span>Email</a>
-            <a href="https://scholar.google.com/citations?user=3VdLBgoAAAAJ&amp;hl=en"><span class="profile-icon" aria-hidden="true">G</span>Google Scholar</a>
-            <a href="https://github.com/bangzhaojo"><span class="profile-icon" aria-hidden="true">GH</span>GitHub</a>
+            <a href="https://scholar.google.com/citations?user=3VdLBgoAAAAJ&amp;hl=en"><img class="profile-brand-icon" src="assets/icons/google-scholar.svg" alt="">Google Scholar</a>
+            <a href="https://github.com/bangzhaojo"><img class="profile-brand-icon" src="assets/icons/github.svg" alt="">GitHub</a>
             <a href="https://huggingface.co/bangzhao"><span class="profile-icon profile-icon-emoji" aria-hidden="true">🤗</span>Hugging Face</a>
             <a href="https://www.linkedin.com/in/bangzhao-shu-770454232/"><span class="profile-icon" aria-hidden="true">in</span>LinkedIn</a>
             <a href="assets/docs/Bangzhao_Shu_Resume_2026.pdf"><span class="profile-icon" aria-hidden="true">CV</span>Résumé <span class="link-note">Updated Sep 2026</span></a>
@@ -66,10 +60,18 @@
         </figure>
       </section>
 
-      <section class="section section-tint" id="research">
+      <div class="content-nav-wrap">
+        <nav class="nav-links content-nav shell" aria-label="Content navigation">
+          <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#experience">Experience</a>
+          <a href="#news">News</a>
+        </nav>
+      </div>
+
+      <section class="section view" id="research" data-view="research">
         <div class="shell">
-          <div class="section-heading">
-            <p class="section-number">01</p>
+          <div class="section-heading section-heading-no-number">
             <div>
               <p class="eyebrow">Research agenda</p>
               <h2>How can AI systems become more socially aware, interpretable, and safe?</h2>
@@ -95,16 +97,8 @@
         </div>
       </section>
 
-      <section class="section shell" id="publications">
-        <div class="section-heading">
-          <p class="section-number">02</p>
-          <div>
-            <p class="eyebrow">Selected work</p>
-            <h2>Publications</h2>
-            <p class="section-note">* indicates equal contribution.</p>
-          </div>
-        </div>
-
+      <section class="section shell view" id="publications" data-view="publications" hidden>
+        <p class="section-note section-note-compact">* indicates equal contribution.</p>
         <div class="publication-list">
           <article class="publication">
             <p class="venue"><span>EMNLP 2026</span></p>
@@ -168,15 +162,8 @@
         </div>
       </section>
 
-      <section class="section section-dark" id="experience">
+      <section class="section experience-section view" id="experience" data-view="experience" hidden>
         <div class="shell">
-          <div class="section-heading section-heading-light">
-            <p class="section-number">03</p>
-            <div>
-              <p class="eyebrow">Background</p>
-              <h2>Education &amp; teaching</h2>
-            </div>
-          </div>
           <div class="experience-grid">
             <div>
               <h3 class="subheading">Education</h3>
@@ -219,14 +206,7 @@
         </div>
       </section>
 
-      <section class="section shell" id="news">
-        <div class="section-heading">
-          <p class="section-number">04</p>
-          <div>
-            <p class="eyebrow">Updates</p>
-            <h2>News</h2>
-          </div>
-        </div>
+      <section class="section shell view" id="news" data-view="news" hidden>
         <ol class="news-list">
           <li>
             <time datetime="2026-08-20">Aug 20, 2026</time>
@@ -268,12 +248,12 @@
       <div class="shell footer-inner">
         <div>
           <p class="footer-name">Bangzhao Shu</p>
-          <p>Human-centered NLP · Mechanistic interpretability · LLM safety</p>
+          <p>Human-centered NLP · Mechanistic interpretability · LLM safety and alignment · Emotional and social intelligence.</p>
         </div>
         <div class="footer-links">
           <a href="mailto:shu.b@northeastern.edu">Email</a>
           <a href="https://github.com/bangzhaojo">GitHub</a>
-          <a href="#top">Back to top ↑</a>
+          <a href="#top">Profile ↑</a>
         </div>
       </div>
     </footer>
