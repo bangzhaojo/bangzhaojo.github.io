@@ -108,15 +108,23 @@ a:hover {
 }
 
 .wordmark-mark {
-  width: 34px;
-  height: 34px;
+  width: 42px;
+  height: 42px;
   display: grid;
   place-items: center;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #fff8ef;
-  font-family: var(--serif);
-  font-weight: 400;
+  background: transparent;
+  color: #111;
+  font-family: "STXingkai", "Xingkai SC", "Baoli SC", "华文行楷", cursive;
+  font-size: 2.15rem;
+  font-weight: 500;
+  line-height: 1;
+  -webkit-text-stroke: 0.45px currentColor;
+  transform: rotate(-2deg) scaleY(1.02);
+  transform-origin: center;
+}
+
+[data-theme="dark"] .wordmark-mark {
+  color: var(--ink);
 }
 
 .nav-links {
@@ -392,7 +400,7 @@ h2 {
 
 .section {
   padding-block: clamp(2.25rem, 4vw, 3.75rem);
-  scroll-margin-top: 72px;
+  scroll-margin-top: 138px;
 }
 
 .section-tint {
@@ -688,15 +696,18 @@ h2 {
   .hero {
     min-height: auto;
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-block: 2.25rem;
   }
 
   .hero-copy {
-    order: 2;
+    order: 1;
   }
 
   .portrait-wrap {
-    width: min(180px, 52vw);
-    justify-self: start;
+    order: 2;
+    width: min(170px, 48vw);
+    justify-self: center;
   }
 
   .research-grid {
@@ -722,6 +733,7 @@ h2 {
 
   .experience-grid {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 }
 
@@ -735,16 +747,46 @@ h2 {
   }
 
   .wordmark-mark {
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
+    font-size: 1.8rem;
   }
 
   .section-heading {
     grid-template-columns: 38px 1fr;
   }
 
+  .section-heading-no-number {
+    grid-template-columns: 1fr;
+  }
+
+  .content-nav-wrap {
+    top: 58px;
+  }
+
+  .content-nav {
+    width: 100%;
+    min-height: 50px;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 1.35rem;
+    padding-inline: 15px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+
+  .content-nav::-webkit-scrollbar {
+    display: none;
+  }
+
   .publication {
     grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .publication .venue {
+    margin-bottom: 0;
   }
   .news-list li {
     grid-template-columns: 1fr;
