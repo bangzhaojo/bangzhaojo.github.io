@@ -212,6 +212,9 @@ h2 {
 
 .profile-links a,
 .paper-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 0.45rem 0.85rem;
@@ -219,6 +222,41 @@ h2 {
   font-weight: 700;
   text-decoration: none;
   transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.profile-icon {
+  min-width: 1.35rem;
+  height: 1.35rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.profile-icon-emoji {
+  background: transparent;
+  font-size: 1rem;
+}
+
+.link-note {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.profile-links a:hover .profile-icon,
+.profile-links a:focus-visible .profile-icon {
+  background: #fff8ef;
+  color: var(--accent);
+}
+
+.profile-links a:hover .link-note,
+.profile-links a:focus-visible .link-note {
+  color: #fff8ef;
 }
 
 .profile-links a:hover,
@@ -266,6 +304,7 @@ h2 {
   padding-top: 1rem;
   color: var(--muted);
   font-size: 0.8rem;
+  text-align: center;
 }
 
 .section {
