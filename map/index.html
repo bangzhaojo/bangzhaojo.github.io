@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Places and chapters from Bangzhao Shu's life: an interactive map of study, travel, and the stories along the way.">
+    <meta name="theme-color" content="#f5f2eb">
+    <title>Map | Bangzhao Shu</title>
+    <link rel="canonical" href="https://www.bangzhaoshu.com/map/">
+    <link rel="icon" href="../assets/images/header-shu.png?v=20260905-3" type="image/png">
+    <link rel="stylesheet" href="../assets/css/styles.css?v=20260923-1">
+    <link rel="stylesheet" href="../assets/css/map.css?v=20261101-1">
+    <script src="../assets/js/site.js?v=20260904-2" defer></script>
+    <script src="../assets/data/world.js" defer></script>
+    <script src="../assets/data/places.js" defer></script>
+    <script src="../assets/js/map.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="shell nav-wrap">
+        <a class="wordmark" href="../" aria-label="Bangzhao Shu, home">
+          <span class="wordmark-mark" aria-hidden="true"><img src="../assets/images/header-shu.png?v=20260905-2" alt="" width="512" height="512"></span>
+          <span>Bangzhao Shu</span>
+        </a>
+        <nav class="nav-links page-nav" aria-label="Primary navigation">
+          <a href="../#research">Research</a><a href="../#experience">Experience</a><a href="./" aria-current="page">Map</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme"><span aria-hidden="true">◐</span></button>
+      </div>
+    </header>
+    <main id="main" class="shell map-page">
+      <header class="map-heading">
+        <div><p class="eyebrow">A life in places</p><h1>Places &amp; chapters</h1><p>Where I’ve been, what brought me there, and what happened along the way.</p></div>
+        <p class="map-summary" id="map-summary"></p>
+      </header>
+      <div class="map-toolbar">
+        <div class="map-filters" role="group" aria-label="Filter places">
+          <button type="button" data-filter="all" aria-pressed="true">All places</button>
+          <button type="button" data-filter="lived" aria-pressed="false"><span class="legend-dot lived"></span>Lived</button>
+          <button type="button" data-filter="study" aria-pressed="false"><span class="legend-dot study"></span>Studied</button>
+          <button type="button" data-filter="visited" aria-pressed="false"><span class="legend-dot visited"></span>Visited</button>
+        </div>
+        <label class="year-filter">When <select id="map-year" aria-label="Filter places by year"><option value="all">All years</option></select></label>
+      </div>
+      <section class="map-explorer" aria-label="Explore places">
+        <div class="map-canvas">
+          <svg id="world-map" viewBox="0 0 1000 440" tabindex="0" role="group" aria-label="Interactive world map" aria-describedby="map-help">
+            <g id="map-grid" aria-hidden="true"></g>
+            <g id="map-land" aria-hidden="true"></g>
+            <g id="map-pins" aria-label="Places"></g>
+          </svg>
+          <div class="map-controls" role="group" aria-label="Map zoom">
+            <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+            <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+            <button type="button" id="zoom-reset">World view</button>
+          </div>
+          <p id="map-empty" class="map-empty" hidden>No places recorded for this selection.</p>
+          <div class="map-caption"><span id="map-help">Select a pin to read its story. Drag to explore.</span><a href="https://www.naturalearthdata.com/about/terms-of-use/">Map: Natural Earth</a></div>
+        </div>
+        <aside class="place-detail" id="place-detail" aria-live="polite" aria-atomic="true"></aside>
+      </section>
+      <section class="journey-section" aria-labelledby="journey-title">
+        <div class="journey-heading"><h2 id="journey-title">The chapters so far</h2><p id="place-count" role="status"></p></div>
+        <div class="place-list" id="place-list"></div>
+      </section>
+      <noscript><p>Enable JavaScript to explore the interactive map. You can also read about my <a href="../#experience">education</a> and <a href="../#news">conference presentations</a> on the home page.</p></noscript>
+    </main>
+    <footer class="site-footer"><div class="shell footer-inner"><div><p class="footer-name">Bangzhao Shu</p><p>A few places. Many chapters.</p></div><div class="footer-links"><a href="mailto:shu.b@northeastern.edu">Email</a><a href="../">Home</a><a href="#main">Top ↑</a></div></div></footer>
+  </body>
+</html>
