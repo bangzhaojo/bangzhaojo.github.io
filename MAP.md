@@ -1,6 +1,6 @@
 # Footprints
 
-Choose **Footprints** on the homepage (or open `index.html#footprints`). It changes the lower content area while keeping your profile visible. Wuhan, Nanjing, Ann Arbor, and Boston are included, plus Shanghai and San Francisco marked as Lived. Dates and stories are blank. The old `/map/` address redirects to this tab.
+Choose **Footprints** on the homepage (or open `index.html#footprints`). It changes the lower content area while keeping your profile visible. Wuhan, Nanjing, Shanghai, Ann Arbor, San Francisco, and Boston are marked as Lived, with dates and personal notes. Wuhan uses “Until age 18” without guessed calendar years; Boston’s 2029 completion is labeled estimated. The old `/map/` address redirects to this tab.
 
 ## Add your information without editing code
 
