@@ -1,6 +1,6 @@
-# Your map
+# Footprints
 
-Open `map/index.html` to see Wuhan, Nanjing, Ann Arbor, and Boston. Dates, categories, and stories start blank.
+Choose **Footprints** on the homepage (or open `index.html#footprints`). It changes the lower content area while keeping your profile visible. Wuhan, Nanjing, Ann Arbor, and Boston are included, plus Shanghai and San Francisco marked as Lived. Dates and stories are blank. The old `/map/` address redirects to this tab.
 
 ## Add your information without editing code
 
@@ -14,11 +14,11 @@ The form is a browser-local editing utility, not an authenticated admin service.
 
 ## Add another place
 
-Add an entry in `assets/data/places.js`. Give it a unique `id`, `city`, `country`, and `coordinates` in **longitude, latitude** order. Category (`type`) can be `place`, `lived`, `study`, or `visited`. Fill `dates` with the exact label to show; `start` and `end` use ISO dates for the year filter. An empty end date means ongoing when a start date exists. `title` and `story` are plain text. The editor automatically includes added places.
+Add an entry in `assets/data/places.js`. Give it a unique `id`, `city`, `country`, and `coordinates` in **longitude, latitude** order. Category (`type`) can be `place` (uncategorized) or `lived`. Fill `dates` with the exact label to show; `start` and `end` use ISO dates for the year filter. An empty end date means ongoing when a start date exists. `title` and `story` are plain text. The editor automatically includes added places.
 
 ## Map controls
 
-Click a pin or place card to open its details. Use + / − to zoom and drag to pan; World view resets the map. With keyboard focus on the map, use + / −, arrow keys, and Home. Pins support Tab and Enter/Space. Categories and years filter both pins and cards. Places without dates appear under All years.
+Click a pin to open its details. Use + / − to zoom and drag to pan; World view resets the map. With keyboard focus on the map, use + / −, arrow keys, and Home. Pins support Tab and Enter/Space. All places / Lived and years filter the pins. Places without dates appear under All years.
 
 ## Map source
 

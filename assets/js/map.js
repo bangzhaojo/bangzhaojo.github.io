@@ -3,9 +3,8 @@
   const svg = document.querySelector('#world-map');
   const pins = document.querySelector('#map-pins');
   const detail = document.querySelector('#place-detail');
-  const list = document.querySelector('#place-list');
   const yearSelect = document.querySelector('#map-year');
-  const labels = { place: 'Place', lived: 'Lived', study: 'Studied', visited: 'Visited' };
+  const labels = { place: 'Place', lived: 'Lived' };
   const ns = 'http://www.w3.org/2000/svg';
   const project = ([lon, lat]) => [(lon + 180) * 1000 / 360, (85 - lat) * 1000 / 360];
   let selected = places[0]?.id;
@@ -46,7 +45,6 @@
     for (let year = first; year <= last && year <= currentYear + 20; year++) years.add(year);
   });
   [...years].sort((a, b) => b - a).forEach(year => yearSelect.add(new Option(String(year), String(year))));
-  document.querySelector('#map-summary').textContent = `${places.length} places · ${countries.size} countries`;
   function showDetail(place) {
     detail.replaceChildren();
     if (!place) {
@@ -64,7 +62,6 @@
   function select(id) {
     selected = id;
     pins.querySelectorAll('[data-place]').forEach(node => node.setAttribute('aria-pressed', String(node.dataset.place === id)));
-    list.querySelectorAll('[data-place]').forEach(node => node.setAttribute('aria-pressed', String(node.dataset.place === id)));
     showDetail(visible.find(place => place.id === id));
     // Keep a selection visible when exploring a zoomed map.
     if (zoom > 1) {
@@ -84,30 +81,23 @@
   function render() {
     const year = yearSelect.value;
     visible = places.filter(p => (filter === 'all' || p.type === filter) && (year === 'all' || (p.start && Number(p.start.slice(0, 4)) <= Number(year) && Number(p.end?.slice(0, 4) || currentYear) >= Number(year))));
-    pins.replaceChildren(); list.replaceChildren();
+    pins.replaceChildren();
     if (!visible.some(p => p.id === selected)) selected = visible[0]?.id;
     for (const place of visible) {
       const [x, y] = project(place.coordinates);
       const marker = svgEl('g', { class: 'map-pin', transform: `translate(${x},${y})`, role: 'button', tabindex: '0', 'aria-label': `${place.city}, ${place.dates || 'details to come'}`, 'aria-pressed': String(selected === place.id), 'data-place': place.id, 'data-type': place.type });
       const symbol = svgEl('g', { class: 'pin-symbol', transform: `scale(${1 / zoom})` });
       symbol.append(svgEl('circle', { r: 12, class: 'pin-halo' }), svgEl('circle', { r: 5, class: 'pin-dot' }));
-      const left = ['ann-arbor', 'wuhan'].includes(place.id);
-      const label = svgEl('text', { x: left ? -12 : 12, y: place.id === 'wuhan' ? 20 : -10, 'text-anchor': left ? 'end' : 'start' });
+      const left = ['ann-arbor', 'wuhan', 'nanjing'].includes(place.id);
+      const label = svgEl('text', { x: left ? -12 : 12, y: ['wuhan', 'shanghai'].includes(place.id) ? 22 : -12, 'text-anchor': left ? 'end' : 'start' });
       label.textContent = place.city; symbol.append(label); marker.append(symbol);
       marker.addEventListener('click', () => select(place.id));
       marker.addEventListener('keydown', event => {
         if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); select(place.id); }
       });
       pins.append(marker);
-      const button = el('button', 'place-card');
-      button.type = 'button'; button.dataset.place = place.id;
-      button.setAttribute('aria-pressed', String(selected === place.id));
-      button.setAttribute('aria-controls', 'place-detail');
-      button.append(el('span', 'place-card-type', labels[place.type] || 'Place'), el('strong', '', place.city), el('span', '', place.country), el('span', '', place.dates || 'Details to come'));
-      button.addEventListener('click', () => select(place.id)); list.append(button);
     }
     document.querySelector('#map-empty').hidden = visible.length > 0;
-    document.querySelector('#place-count').textContent = `${visible.length} ${visible.length === 1 ? 'place' : 'places'} shown`;
     showDetail(visible.find(p => p.id === selected));
   }
   document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {

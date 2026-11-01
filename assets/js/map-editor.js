@@ -5,12 +5,14 @@
   let restored = false;
   try {
     const saved = JSON.parse(localStorage.getItem(key));
-    if (Array.isArray(saved) && saved.length === original.length && original.every(p => saved.some(s => s.id === p.id))) {
+    if (Array.isArray(saved) && saved.some(s => s && original.some(p => p.id === s.id))) {
       // Keep trusted coordinates and IDs; restore only fields this form can edit.
       places = original.map(p => {
-        const s = saved.find(s => s.id === p.id);
+        const s = saved.find(s => s?.id === p.id);
+        if (!s) return { ...p };
         const next = { ...p };
         ['type', 'dates', 'start', 'end', 'title', 'story'].forEach(field => { if (typeof s[field] === 'string') next[field] = s[field]; });
+        if (!['place', 'lived'].includes(next.type)) next.type = 'place';
         return next;
       });
       restored = true;

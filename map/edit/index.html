@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow">
-  <title>Edit map | Bangzhao Shu</title>
+  <title>Edit Footprints | Bangzhao Shu</title>
   <link rel="stylesheet" href="../../assets/css/styles.css?v=20260923-1">
   <style>
     main { max-width:760px; padding:3rem 0; } h1 { margin:1.5rem 0 1rem; } .intro { color:var(--muted); }
@@ -14,16 +14,16 @@
     #editor-status { min-height:1.8em; color:var(--muted); font-size:.85rem; } :focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
     @media(max-width:500px) { .row { grid-template-columns:1fr; gap:0; } }
   </style>
-  <script src="../../assets/data/places.js" defer></script><script src="../../assets/js/map-editor.js" defer></script>
+  <script src="../../assets/data/places.js?v=20261101-2" defer></script><script src="../../assets/js/map-editor.js?v=20261101-2" defer></script>
 </head>
 <body><main class="shell">
-  <a href="../">← Back to the map</a><h1>Your places, your words.</h1>
-  <p class="intro">Add dates and stories for your four cities. Your draft stays in this browser. When you’re ready, download the updated file, replace <strong>assets/data/places.js</strong> in your website folder, and publish your website as usual.</p>
+  <a href="../../#footprints">← Back to Footprints</a><h1>Your places, your words.</h1>
+  <p class="intro">Add dates and stories for your cities. Your draft stays in this browser. When you’re ready, download the updated file, replace <strong>assets/data/places.js</strong> in your website folder, and publish your website as usual.</p>
   <p class="intro">This form does not change the live website. Keep any field blank until you’re ready.</p>
   <label>Choose a place<select id="editor-place"></select></label>
   <form id="place-form">
     <fieldset><legend id="editor-heading">Place details</legend>
-      <label>What brought you here?<select name="type"><option value="place">Not added yet</option><option value="lived">Lived here</option><option value="study">Studied here</option><option value="visited">Visited</option></select></label>
+      <label>What brought you here?<select name="type"><option value="place">Not added yet</option><option value="lived">Lived here</option></select></label>
       <label>Dates to show<input name="dates" placeholder="e.g. 2021–2024, or Summer 2025"><span class="field-note">Use whatever level of detail feels right.</span></label>
       <div class="row"><label>Start year<input name="startYear" type="number" min="1900" max="2200" placeholder="e.g. 2021"></label><label>End year<input name="endYear" type="number" min="1900" max="2200" placeholder="Leave blank if ongoing"></label></div>
       <p class="field-note">Years power the map’s year filter. They are optional.</p>

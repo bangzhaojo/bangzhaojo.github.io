@@ -12,6 +12,10 @@
     <link rel="apple-touch-icon" href="assets/images/header-shu.png?v=20260905-3">
     <link rel="stylesheet" href="assets/css/styles.css?v=20260905-3">
     <script src="assets/js/site.js?v=20260904-2" defer></script>
+    <link rel="stylesheet" href="assets/css/map.css?v=20261101-2">
+    <script src="assets/data/world.js" defer></script>
+    <script src="assets/data/places.js?v=20261101-2" defer></script>
+    <script src="assets/js/map.js?v=20261101-2" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -68,7 +72,7 @@
           <a href="#publications">Publications</a>
           <a href="#experience">Experience</a>
           <a href="#news">News</a>
-          <a href="map/">Map</a>
+          <a href="#footprints">Footprints</a>
         </nav>
       </div>
 
@@ -244,6 +248,33 @@
             <p><a href="https://aclanthology.org/2024.naacl-long.295/">You don’t need a personality test to know these models are unreliable</a> was accepted to NAACL 2024.</p>
           </li>
         </ol>
+      </section>
+
+      <section class="section shell view map-page" id="footprints" data-view="footprints" aria-label="Footprints" hidden>
+        <div class="map-toolbar">
+          <div class="map-filters" role="group" aria-label="Filter places">
+            <button type="button" data-filter="all" aria-pressed="true">All places</button>
+            <button type="button" data-filter="lived" aria-pressed="false"><span class="legend-dot lived"></span>Lived</button>
+          </div>
+          <label class="year-filter">When <select id="map-year" aria-label="Filter places by year"><option value="all">All years</option></select></label>
+        </div>
+        <section class="map-explorer" aria-label="Explore places">
+          <div class="map-canvas">
+            <svg id="world-map" viewBox="0 0 1000 440" tabindex="0" role="group" aria-label="Interactive world map" aria-describedby="map-help">
+              <g id="map-grid" aria-hidden="true"></g>
+              <g id="map-land" aria-hidden="true"></g>
+              <g id="map-pins" aria-label="Places"></g>
+            </svg>
+            <div class="map-controls" role="group" aria-label="Map zoom">
+              <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+              <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+              <button type="button" id="zoom-reset">World view</button>
+            </div>
+            <p id="map-empty" class="map-empty" hidden>No places recorded for this selection.</p>
+            <div class="map-caption"><span id="map-help">Select a pin to read its story. Drag to explore.</span><a href="https://www.naturalearthdata.com/about/terms-of-use/">Map: Natural Earth</a></div>
+          </div>
+          <aside class="place-detail" id="place-detail" aria-live="polite" aria-atomic="true"></aside>
+        </section>
       </section>
     </main>
 
